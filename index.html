@@ -1,0 +1,58 @@
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        ul {
+            padding-inline-start: 0;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        li>a {
+            font-size: 22px;
+            color: #66ccff;
+            text-decoration: none;
+        }
+
+        li>a:hover {
+            color: #337ab7;
+            text-decoration: underline;
+        }
+
+        .h2 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .picture {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .picture:last-child {
+            margin-right: 0px;
+        }
+
+    </style>
+    <script src="./jquery-3.3.1.min.js"></script>
+</head>
+
+<div id="tx" class="h2" style="margin-bottom:10px;">Unity项目展示</div>
+<ul></ul>
+
+<script>
+    $.getJSON('./links.json').then(videos => {
+        for (var v in videos) {
+            $('ul').append(
+                `<li>
+                    <img style="width:22px;height:22px;margin-bottom:5px;vertical-align: middle;" src="./favicon.ico" />
+                    <a href="${videos[v]}" style="font-size:20px" target="_blank">${v}</a>
+                </li>`);
+        }
+    });
+</script>
